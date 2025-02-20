@@ -1,0 +1,21 @@
+pkgbase = tlauncher
+	pkgdesc = The Launcher for Minecraft
+	pkgver = 1.13
+	pkgrel = 1
+	url = https://tlauncher.org
+	arch = x86_64
+	license = custom
+	depends = jdk-openjdk
+	options = !strip
+	source_x86_64 = https://tlauncher.org/jar
+	source_x86_64 = tlauncher.png::https://tlauncher.org/favicon-196x196.png
+	source_x86_64 = tlauncher.desktop
+	source_x86_64 = tlauncher_startup.desktop
+	source_x86_64 = tlauncher
+	sha256sums_x86_64 = SKIP
+	sha256sums_x86_64 = f73ebca88c29fd48562a40c5fafbfcc149b4d4f02fafe4a4bca8fda6b3e35b2c
+	sha256sums_x86_64 = 028ad46fb44fcffeee790e65263ce060fda7a0d17a4b12c9e7dde7f5c0df08fd
+	sha256sums_x86_64 = 09fc501cd6905adf0cad715130eb6020b2c9d5b30bd4c9da8aad4f6eff92ddad
+	sha256sums_x86_64 = a3c1e3379628db705dd3bfa89e040ccbed078d827bb56a8177c056822164f236
+
+pkgname = tlauncher
