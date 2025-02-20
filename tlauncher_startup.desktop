@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=TLauncher
+Icon=tlauncher
+Categories=Game;Minecraft;
+Exec=tlauncher
+Comment=The Launcher for Minecraft
+StartupWMClass=by-gdev-Main
