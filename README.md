@@ -4,6 +4,8 @@
 > I created this script in my spare time, and I am not affiliated with the company that created
 > [TLauncher](https://tlauncher.org/en/). This script is provided "as is" without any warranties or guarantees. I am not responsible for any issues, damages, or losses that may arise from the use of this script. Use it at your own risk.
 
+The C file ( [set_wm_class.c](https://gist.github.com/tgr/eae411cefde08cbed5c59d4f51ddb062) ) for changing the WM_CLASS comes from [Tisza Gergő](https://github.com/tgr). The creator is not involved in this project.
+
 ## Installation
 
 ```bash
