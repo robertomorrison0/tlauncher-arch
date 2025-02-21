@@ -18,7 +18,7 @@ $ makepkg -si
 
 To update TLauncher repeat the install process as it will download the latest version automatically.
 The Launcher itself does not have sufficiant perissions to update.
-If you already have a folder with this repo and the build in it you probably need to run `makepkg -sfi` to force the rebuild of the package.
+If you already have a folder with this repo and the build in it, you probably need to run `makepkg -sfi` to force the rebuild of the package.
 
 ## Problems
 
