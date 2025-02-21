@@ -6,17 +6,29 @@ pkgdesc="The Launcher for Minecraft"
 arch=('x86_64')
 url="https://tlauncher.org"
 license=('custom')
-# makedepends=('7zip')
+makedepends=('meson' 'ninja')
 depends=('jdk-openjdk')
 options=(!strip)
 pkgver=1.13
 
-source_x86_64=("${url}/jar" "${pkgname}.png::https://tlauncher.org/favicon-196x196.png" "${pkgname}.desktop" "${pkgname}_startup.desktop" "${pkgname}")
-sha256sums_x86_64=('SKIP'
+source_x86_64=("${url}/jar" "${pkgname}.png::${url}/favicon-196x196.png"
+"minecraft.png::https://ia800402.us.archive.org/0/items/minecraft-vector-icons/Minecraft_2009_icon.png"
+"${pkgname}.desktop"
+"${pkgname}_minecraft.desktop"
+"${pkgname}"
+"meson.build"
+"set_wm_class.c"
+"set_window_class.sh")
+
+sha256sums_x86_64=('3d3f526da3567e689dae4dbf05d44166c9f6c77f5a85b5c0ccaffda11ea24a34'
                    'f73ebca88c29fd48562a40c5fafbfcc149b4d4f02fafe4a4bca8fda6b3e35b2c'
-                   '028ad46fb44fcffeee790e65263ce060fda7a0d17a4b12c9e7dde7f5c0df08fd'
-                   '09fc501cd6905adf0cad715130eb6020b2c9d5b30bd4c9da8aad4f6eff92ddad'
-                   'a3c1e3379628db705dd3bfa89e040ccbed078d827bb56a8177c056822164f236')
+                   '959f47cbd60acc7fc009b39fc7ba51f201433e9a42779ce2eff534bc12d91bba'
+                   'e980518dbb826c017405067868e53ff64bdad72dc99def818bec98bf2df600df'
+                   '844d05299db5675e06af8dffd227566c6650be4f551f08ce13b5d5466b01cbfe'
+                   'c9605848bdefcc1ac9dcf6a583916e90364be576f185ffb1643e4ae344950ece'
+                   'd94e9d513f81e068b39d86e2e28873779ff7b18d746572c36f5ecc71293c423d'
+                   '8b0f903bed8955a96ab6a4a3ecb816c6250b9fc878da2980baa23718996741d6'
+                   'd54f0a0c3741c7065c508970e4b3adf4ba56fbca8b3f8b07157f643bc9201860')
 
 pkgver() {
     DOWNLOAD_NAME=$(curl -sIkL https://tlauncher.org/jar | sed -r '/filename=/!d;s/.*filename=(.*)$/\1/')
@@ -26,10 +38,19 @@ pkgver() {
 prepare() {
     chmod +x "${srcdir}/TLauncher.jar"
     chmod +x "${pkgname}"
+    chmod +x "set_window_class.sh"
+}
+
+build()
+{
+    meson setup --prefix="/opt" build
+    ninja -C build
 }
 
 
 package() {
+    # meson install -C build --destdir "${pkgdir}/"
+
     install -Dm755 "${srcdir}/TLauncher.jar" "${pkgdir}/usr/share/java/${_pkgname}/${_pkgname}.jar"
     install -Dm755 "${srcdir}/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 
@@ -38,10 +59,17 @@ package() {
     install -Dm644 "${srcdir}/${_pkgname}.desktop" \
             "${pkgdir}/usr/share/applications/${pkgname}.desktop"
 
-    install -Dm644 "${srcdir}/${_pkgname}_startup.desktop" \
-            "${pkgdir}/usr/share/applications/${pkgname}_startup.desktop"
+    install -Dm644 "${srcdir}/${_pkgname}_minecraft.desktop" \
+            "${pkgdir}/usr/share/applications/${pkgname}_minecraft.desktop"
 
     # Installing Icon images
     install -dm755 "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
     cp "${srcdir}/${_pkgname}.png" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
+    cp "${srcdir}/minecraft.png" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
+
+    install -dm755 "${pkgdir}/opt/${pkgname}/"
+    install -Dm755 "${srcdir}/build/set_wm_class" "${pkgdir}/opt/${pkgname}/"
+    install -Dm755 "${srcdir}/set_window_class.sh" "${pkgdir}/opt/${pkgname}/"
+
+    # install -Dm755 "${pkgdir}/opt/${pkgname}/"
 }

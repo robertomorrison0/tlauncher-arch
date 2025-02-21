@@ -5,4 +5,4 @@ Icon=tlauncher
 Categories=Game;Minecraft;
 Exec=tlauncher
 Comment=The Launcher for Minecraft
-StartupWMClass=org-tlauncher-tlauncher-rmo-TLauncher
+StartupWMClass=tlauncher

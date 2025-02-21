@@ -1,2 +1,11 @@
 #!/bin/sh
-exec /usr/bin/java -jar '/usr/share/java/tlauncher/tlauncher.jar' "$@"
+/usr/bin/java -jar '/usr/share/java/tlauncher/tlauncher.jar' "$@"
+
+# change WM_CLASSES to match the actual WM_CLASS of the application
+
+while true; do
+    /opt/tlauncher/set_window_class.sh Minecraft minecraft
+    /opt/tlauncher/set_window_class.sh org-tlauncher-tlauncher-rmo-TLauncher tlauncher
+    /opt/tlauncher/set_window_class.sh by-gdev-Main tlauncher
+    sleep 1
+done
