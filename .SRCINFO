@@ -18,14 +18,14 @@ pkgbase = tlauncher
 	source_x86_64 = meson.build
 	source_x86_64 = set_wm_class.c::https://gist.githubusercontent.com/tgr/eae411cefde08cbed5c59d4f51ddb062/raw/a96b602639b198646a7912df5b70669ac97ead33/set_wm_class.c
 	source_x86_64 = set_window_class.sh
-	sha256sums_x86_64 = 3d3f526da3567e689dae4dbf05d44166c9f6c77f5a85b5c0ccaffda11ea24a34
+	sha256sums_x86_64 = SKIP
 	sha256sums_x86_64 = f73ebca88c29fd48562a40c5fafbfcc149b4d4f02fafe4a4bca8fda6b3e35b2c
 	sha256sums_x86_64 = 959f47cbd60acc7fc009b39fc7ba51f201433e9a42779ce2eff534bc12d91bba
 	sha256sums_x86_64 = e980518dbb826c017405067868e53ff64bdad72dc99def818bec98bf2df600df
 	sha256sums_x86_64 = 844d05299db5675e06af8dffd227566c6650be4f551f08ce13b5d5466b01cbfe
 	sha256sums_x86_64 = c9605848bdefcc1ac9dcf6a583916e90364be576f185ffb1643e4ae344950ece
 	sha256sums_x86_64 = d94e9d513f81e068b39d86e2e28873779ff7b18d746572c36f5ecc71293c423d
-	sha256sums_x86_64 = 8b0f903bed8955a96ab6a4a3ecb816c6250b9fc878da2980baa23718996741d6
+	sha256sums_x86_64 = 73a85052fa4071a9a240b8770e78bb2ff7b9793205af6916243a008b515a84e9
 	sha256sums_x86_64 = d54f0a0c3741c7065c508970e4b3adf4ba56fbca8b3f8b07157f643bc9201860
 
 pkgname = tlauncher
