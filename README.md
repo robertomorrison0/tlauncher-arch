@@ -20,7 +20,3 @@ To update TLauncher repeat the install process as it will download the latest ve
 The Launcher itself does not have sufficiant perissions to update.
 If you already have a folder with this repo and the build in it, you probably need to run `makepkg -sfi` to force the rebuild of the package.
 
-## Problems
-
-The script for setting the icons is not exiting on application close.
-It can be 'fixed' by running `killall tlauncher` in the terminal, after closing the application.

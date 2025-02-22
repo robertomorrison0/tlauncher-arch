@@ -3,9 +3,30 @@
 
 # change WM_CLASSES to match the actual WM_CLASS of the application
 
+CLASS_PREFIX="org-tlauncher-tlauncher-rmo-TLauncher"
+
+function is_tlauncher_running() {
+	window_ids=$(xwininfo -root -tree | grep '\"' | awk '{print $1}')
+
+	# Iterate over each window ID
+	for id in $window_ids; do
+	  # Get the WM_CLASS property of the window
+	  wm_class=$(xprop -id $id WM_CLASS 2>/dev/null)
+
+	  if echo "$wm_class" | grep -q "^WM_CLASS(STRING) = \"$CLASS_PREFIX"; then
+		  return 0
+	  fi
+	done
+	return 1
+}
+
 while true; do
     /opt/tlauncher/set_window_class.sh Minecraft minecraft
     /opt/tlauncher/set_window_class.sh org-tlauncher-tlauncher-rmo-TLauncher tlauncher
     /opt/tlauncher/set_window_class.sh by-gdev-Main tlauncher
+
+   	if ! is_tlauncher_running; then
+		break
+	fi
     sleep 1
 done
